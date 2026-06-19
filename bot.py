@@ -9,9 +9,9 @@ from telegram.ext import (
     filters
 )
 RUTA_BASE = os.path.dirname(os.path.abspath(__file__))
-TOKEN = "8602391440:AAH0LHchkrEujP13NtMP9twVyAheGn9Etk4"
+TOKEN = "8602391440:AAFOL9bguBglJSsevOQASg-6gr4Mk4fqcAA"
 
-usuarios_estado = {}
+usuarios_estado = {} #cada usuario tiene su propio estado guardado en un diccionario usando el legajo como clave
 # -------------------------
 # LEER EMPLEADOS
 # -------------------------
@@ -75,8 +75,8 @@ async def mensajes(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
 
-    estado = usuarios_estado[user_id]["estado"]
-
+    estado = usuarios_estado[user_id]["estado"]  #puede ser esperando lejago, esperando dias o finalizado, el sistema sabe en que paso
+                                                # esta cada uno
     # ------------------
     # LEGAJO
     # ------------------
@@ -90,7 +90,7 @@ async def mensajes(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             return
 
-        empleado = buscar_empleado(texto)
+        empleado = buscar_empleado(texto) #aca se valida que exista, recorriendo el csv
 
         if empleado is None:
 
