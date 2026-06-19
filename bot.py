@@ -1,5 +1,10 @@
+
 import csv
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
+TOKEN = os.getenv("8602391440:AAFOL9bguBglJSsevOQASg-6gr4Mk4fqcA")
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
@@ -9,7 +14,7 @@ from telegram.ext import (
     filters
 )
 RUTA_BASE = os.path.dirname(os.path.abspath(__file__))
-TOKEN = "8602391440:AAFOL9bguBglJSsevOQASg-6gr4Mk4fqcAA"
+
 
 usuarios_estado = {} #cada usuario tiene su propio estado guardado en un diccionario usando el legajo como clave
 # -------------------------
