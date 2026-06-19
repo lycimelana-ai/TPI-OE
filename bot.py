@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-TOKEN = os.getenv("8602391440:AAFOL9bguBglJSsevOQASg-6gr4Mk4fqcA")
+TOKEN = os.getenv("TOKEN")
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
