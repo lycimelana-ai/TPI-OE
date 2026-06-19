@@ -16,7 +16,7 @@ from telegram.ext import (
 RUTA_BASE = os.path.dirname(os.path.abspath(__file__))
 
 
-usuarios_estado = {} #cada usuario tiene su propio estado guardado en un diccionario usando el legajo como clave
+usuarios_estado = {} #cada usuario tiene su propio estado guardado usando el id de telegram
 # -------------------------
 # LEER EMPLEADOS
 # -------------------------
@@ -131,6 +131,9 @@ async def mensajes(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         dias = int(texto)
+        if dias <= 0:
+            await update.message.reply_text("Debe ingresar una cantidad de días mayor a cero.")
+            return
 
         disponibles = usuarios_estado[user_id]["dias_disponibles"]
 
